@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Models</title>
+
+     <!-- FONTS -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&display=swap"
+       rel="stylesheet"
+     />
+     
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="model_styles.css"
+    />
+
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- MODEL-VIEWER -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <script
+      src="https://unpkg.com/focus-visible/dist/focus-visible.js"
+      defer
+    ></script>
+
+    <!-- A-FRAME -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <button  class="nav_button col-lg-1">
+          <a class="back" href="../index.html#models">Back</a>
+        </button>
+        <div class="nav col-lg-10 justify-content-center">
+          <button class="nav_button" id="first">Earth</button>
+          <button class="nav_button" id="second">Flying Planets</button>
+          <button class="nav_button" id="third">A-frame</button>
+        </div>
+      </div>
+    </div>
+      <div class="models">
+          <div id="first_content" style="display:none">
+            <model-viewer
+            bounds="tight"
+            src="../assets/zemlja.gltf"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            shadow-intensity="1.2"
+            autoplay
+            exposure="2"
+            shadow-softness="1">
+          </model-viewer>
+        </div>
+        <div id="second_content" style="display:none">
+          <model-viewer
+            bounds="tight"
+            src="../assets/world.gltf"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            skybox-image="../assets/GCanyon_C_YumaPoint_3k.hdr"
+            enviroment-image="../assets/GCanyon_C_YumaPoint_3k.hdr"
+            camera-controls
+            shadow-intensity="1.2"
+            exposure="2"
+            shadow-softness="1">
+          </model-viewer>
+        </div>
+        <div id="third_content" style="display:block"> 
+          <iframe src="aframe.html"></iframe>
+        </div>
+    </div>
+    <script>
+        const firstButton = document.getElementById("first");
+        const firstContent = document.getElementById("first_content");
+        const secondButton = document.getElementById("second");
+        const secondContent = document.getElementById("second_content");
+        const thirdButton = document.getElementById("third");
+        const thirdContent = document.getElementById("third_content");
+
+        firstButton.addEventListener('click', function(){
+          firstContent.style.display="block";
+          secondContent.style.display="none";
+          thirdContent.style.display="none";
+        })
+
+        secondButton.addEventListener('click', function(){
+          secondContent.style.display="block";
+          firstContent.style.display="none";
+          thirdContent.style.display="none";
+        })
+
+        thirdButton.addEventListener('click', function(){
+          thirdContent.style.display="block";
+          firstContent.style.display="none";
+          secondContent.style.display="none";
+        })
+    </script>
+    </div>
+  </body>
+</html>

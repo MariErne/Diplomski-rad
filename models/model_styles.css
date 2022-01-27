@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+model-viewer,
+iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+}
+
+.nav_button.col-lg-1 {
+  text-align: center;
+}
+
+.nav_button,
+.back {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  font-size: 30px;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+  font-family: "Cormorant";
+}
+
+.nav_button:hover,
+.back:hover {
+  color: #81818180;
+  text-decoration: none;
+}
+
+.models {
+  margin-top: 15px;
+}
